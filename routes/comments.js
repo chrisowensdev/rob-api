@@ -3,9 +3,10 @@ const router = express.Router();
 
 const commentsModel = require('../models/commentsModel');
 
-router.get('/', async (req, res) => {
-    const getAllComments = await commentsModel.getAllComments();
-    res.json(getAllComments).status(200);
+router.get('/:id', async (req, res) => {
+    const { id } = req.params;
+    const getComments = await commentsModel.getCommentsByPost(id);
+    res.json(getComments).status(200);
 });
 
 module.exports = router;
