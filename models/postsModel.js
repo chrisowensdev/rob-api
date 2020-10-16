@@ -19,7 +19,7 @@ class Posts {
                 `SELECT * FROM posts WHERE id = $1;`,
                 [postId]
             );
-            console.log(response);
+            return response;
         } catch (error) {
             console.error(error);
             return error;
